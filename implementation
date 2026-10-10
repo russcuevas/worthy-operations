@@ -1,0 +1,78 @@
+INVENTORY & STAFF TASK MANAGEMENT SYSTEM
+Software requirements | Web-based, multi-user application
+Build one cloud-based system for tracking stock quantities and exact warehouse locations, assigning staff
+tasks and schedules, and reviewing proof of completion. It must work in Google Chrome on desktop, tablet,
+Android, and iPhone, with simultaneous access and individual password-protected accounts.
+1 Roles and permissions
+Admin / authorized supervisor
+• Manage users, items, warehouses and storage locations; receive, release, transfer and correct stock.
+• Assign tasks and schedules; monitor all employees; review uploaded evidence; approve or return submitted tasks.
+• Access reports, exports and the activity log. Supervisors may receive a narrower permission set configured by Admin.
+Staff
+• View only their own assigned tasks, instructions and schedule.
+• Submit completion remarks and upload photos, delivery receipts, receiving records or other evidence.
+• Cannot assign tasks, alter the original instructions, delete records or change inventory unless specifically granted
+permission.
+2 Inventory and warehouse
+Item master list
+• Item code/SKU, name, category, description, unit of measurement, supplier, minimum stock threshold, active/inactive
+status and date created.
+• Show current available quantity by item and by exact warehouse location; optionally show cost and inventory value.
+• Maintain stock as a transaction-based balance: opening balance + stock in - stock out +/- adjustments. Transfers change
+location balances without changing total stock.
+Stock in
+Record date, item, quantity, unit, supplier, purchase order/reference, delivery receipt number, warehouse, exact storage
+location, receiver, remarks and attachments. Increase stock only after the receipt is confirmed.
+Stock out
+Record date, item, quantity, unit, source warehouse and location, recipient/customer/department, purpose, delivery receipt,
+releasing and receiving persons, remarks and attachments. Decrease stock only after confirmation. Block a withdrawal
+exceeding available stock unless Admin explicitly authorizes a controlled exception.
+Warehouses, locations and transfers
+Support multiple warehouses and nested locations (for example, Biaan Warehouse / Freezer 2 / Rack B). Search an item to
+see item, quantity, warehouse and exact location. Record internal transfers with source and destination, quantity, time, user
+and reference; prevent the transfer from being counted as a sale.
+Movement history and dashboard
+• Every movement records date/time, type, quantity change, running balance, location, reference and user. Preserve
+original transactions when making corrections.
+• Admin dashboard: total SKUs, stock on hand, optional value, receipts and releases today, low/out-of-stock items, recent
+movements, totals by warehouse/category, and item/location search.
+Inventory & Staff Task Management System 2
+3 Staff tasks and schedules
+Staff directory and task assignment
+Maintain employee name, role, position, department, contact number, username, account status and optional photo. Only
+Admin or an authorized supervisor can create tasks. Each task has an ID, title, instructions, assignee, assignment and due
+date/time, work location, priority, status, attachments and remarks.
+Priority: Low, Normal, High, Urgent. Workflow: Not Started → In Progress → For Verification → Completed. The Admin may
+also Cancel a task or return it as Needs Correction.
+Schedule calendar
+Show daily, weekly and monthly views. Admin can see all staff and filter by employee; each staff member sees only their
+own schedule. Tasks display start time, due time, location and status. For example: Sept. 28 — Juan: 8:00 receive delivery;
+10:00 inventory count; 2:00 deliver items.
+Proof and verification
+• Staff may add completion remarks and upload a work photo, delivery receipt, receiving document or other supporting file.
+Record uploader, task, date and time.
+• Submission moves a task to For Verification. Admin approves it as Completed or returns it as Needs Correction with a
+reason. Preserve the submission and review history.
+Task dashboard and notifications
+Admin sees counts by status and employee, overdue and due-today tasks, and items awaiting verification. In-app
+notifications cover new assignments, due and overdue tasks, returned and approved work, and low or out-of-stock items.
+4 Reports and exports
+• Inventory: receipts, releases, current stock, stock by warehouse/location, movement history, low stock and per-item
+history.
+• Staff: assigned/completed/pending/overdue tasks, tasks by employee/date/location, and employee activity.
+• Provide date-range filters, search and Excel / Print gusto ko parang mag nenew tab siya tapos simpleng printing lang ang gusto ko makita hindi yung madaming design kung ano lang ang need
+5 Security and technical requirements
+• Individual login accounts with password protection and server-enforced role-based permissions. Staff must not access
+another employee’s private tasks or documents by changing a URL.
+• Centralized database and file storage, responsive Chrome interface, and safe simultaneous use without lost updates or
+double stock deductions.
+• Audit log with date/time, user and action for login, stock transactions and corrections, task assignments, uploads, review
+decisions and edits. Keep history instead of permanently deleting important transactions.
+• Support practical backup/restore and validation of uploaded file types and sizes.
+Acceptance checks
+• Receive an item into one rack, transfer part to another rack, and release part: the total and each location balance update
+correctly.
+• Two users attempt to release the same limited stock at once: the system prevents an invalid balance.
+• A staff member sees their own schedule and submits a delivery receipt; Admin can approve or return it; another staff
+member cannot access it.
+• Admin can filter and export inventory and staff reports, with the actions visible in the audit history

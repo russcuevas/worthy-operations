@@ -1,0 +1,38 @@
+may bagong gusto gawin at irevise sa system na ito ito siya 
+
+gusto ko imodify mo yung conrollers views and models saka database migrations based dito sa binigay ko
+
+
+627 role
+1.	627 (ADMIN)
+•	Manage users
+•	Assign tasks and schedules to everyone; monitor all tasks ; review uploaded evidence; NO approval need of all tasks.
+•	Access reports, exports and the activity log.
+•	New feature sa admin pwede nya utusan lahat ng top coor lahat ng clusters na no need na isaisahan (bulk tasks)
+•	May option din to assign one cluster lang
+
+HQ role 
+2.	HQ
+•	Same forms lang ng current Task management (teamacosta2028) 
+•	Pwede maka give ng order to Cluster head, Top Coor, and registry officer
+•	Naka tagged lang mga names kung sino2 ang nag bigay ng task
+
+Cluster Head role 
+3.	Cluster Head
+•	Same forms lang ng current Task management (teamacosta2028) 
+•	Pwede maka give ng order to Top Coor, and registry officer
+•	Naka tagged lang mga names kung sino2 ang nag bigay ng task
+
+Top coor role
+4.	Top Coor
+•	Same forms lang ng current Task management (teamacosta2028) 
+•	Pwede maka give ng order to registry officer
+•	Naka tagged lang mga names kung sino2 ang nag bigay ng task
+
+Registry officer role
+5.	Registry Officer
+•	 View only their own assigned tasks, instructions and schedule.
+•	 Submit completion remarks and upload photos.
+•	Reporting ay mababato lang dun kung sino ang nagbigay ng task 
+
+Note: Lahat ng task walang approval na kailangan natrace lang kung sino ang nag bigay ng task. 
