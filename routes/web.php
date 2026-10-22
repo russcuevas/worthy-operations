@@ -98,6 +98,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/staff', [StaffDirectoryController::class, 'store'])->name('staff.store');
     Route::get('/staff/{id}', [StaffDirectoryController::class, 'show'])->name('staff.show');
     Route::put('/staff/{id}', [StaffDirectoryController::class, 'update'])->name('staff.update');
+    Route::delete('/staff/{id}', [StaffDirectoryController::class, 'destroy'])->name('staff.destroy');
 
     // Reports & Activity Logs
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');

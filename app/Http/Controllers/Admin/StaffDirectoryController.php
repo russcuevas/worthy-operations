@@ -165,4 +165,41 @@ class StaffDirectoryController extends Controller
 
         return redirect()->route('admin.staff.index')->with('success', "User {$user->name} updated successfully!");
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        if (auth()->id() === $user->id) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'You cannot delete your own account.'], 403);
+            }
+            return redirect()->back()->with('error', 'You cannot delete your own account.');
+        }
+
+        if ($user->role === 'admin' && User::where('role', 'admin')->count() <= 1) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Cannot delete the only remaining Admin account.'], 403);
+            }
+            return redirect()->back()->with('error', 'Cannot delete the only remaining Admin account.');
+        }
+
+        $name = $user->name;
+        $username = $user->username;
+        $roleLabel = $user->role_label;
+
+        if ($user->avatar && file_exists(public_path($user->avatar))) {
+            @unlink(public_path($user->avatar));
+        }
+
+        $user->delete();
+
+        AuditLog::record('Users', 'Delete Staff Account', "Deleted user account for {$name} (@{$username}, {$roleLabel})");
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => "User account for {$name} was deleted successfully."]);
+        }
+
+        return redirect()->route('admin.staff.index')->with('success', "User account for {$name} was deleted successfully.");
+    }
 }
